@@ -1,0 +1,21 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build current file",
+            "type": "shell",
+            "command": "zsh",
+            "args": [
+                "-c",
+                "mkdir -p \"${workspaceFolder}/build\" && clang++ -std=c++17 -Wall -Wextra -g \"${file}\" -o \"${workspaceFolder}/build/${fileBasenameNoExtension}\""
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+#include <iostream>
+#include <vector>
+
+void rec(std::vector<int>& vec, int n, int k, int pos, int prev) {
+    if (pos == k) {
+        for (int i : vec) std::cout << i << " ";
+        std::cout << '\n';
+        return;
+    }
+    for (int i = prev + 1; i <= n - (k - pos) + 1; i++) {
+        vec[pos] = i;
+        rec(vec, n, k, pos + 1, i);
+    }
+}
+
+int main() {
+    std::ios_base::sync_with_stdio(false);
+    std::cin.tie(nullptr);
+    int n, k;
+    std::cin >> n >> k;
+    std::vector<int> vec(k);
+    rec(vec, n, k, 0, 0);
+}
